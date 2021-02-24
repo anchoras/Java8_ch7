@@ -3,8 +3,22 @@
 */
 
 class TwoDShape {
-    double width;
-    double height;
+    private double width;
+    private double height;
+
+    double getWidth() {
+        return width;
+    }
+    double getHeight() {
+        return height;
+    }
+
+    void setWidth(double w) {
+        width = w;
+    }
+    void setHeight(double h) {
+        height = h;
+    }
 
     void showDim() {
         System.out.println("Width: " + width + "   Heigth: " + height);
@@ -12,10 +26,16 @@ class TwoDShape {
 }
 
 class Triangle extends TwoDShape {
-    String style;
+    private String style;
+
+    Triangle (String s, double w, double h) {
+        style = s;
+        setWidth(w);
+        setHeight(h);
+    }
 
     double area() {
-        return width * height /2;
+        return getWidth() * getHeight() /2;
     }
 
     void showStyle() {
@@ -25,16 +45,8 @@ class Triangle extends TwoDShape {
 
 class InheritanceDemo {
     public static void main(String args[]) {
-        Triangle t1 = new Triangle();
-        Triangle t2 = new Triangle();
-
-        t1.width = 4.0;
-        t1.height = 4.0;
-        t1.style = "painted over";
-
-        t2.width = 8.0;
-        t2.height = 12.0;
-        t2.style = "contour";
+        Triangle t1 = new Triangle("Painted over", 4.0, 4.0);
+        Triangle t2 = new Triangle("Conrour", 8.0, 12.0);
 
         System.out.println("Information about t1: ");
         t1.showDim();
