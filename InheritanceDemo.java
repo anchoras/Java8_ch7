@@ -6,6 +6,19 @@ class TwoDShape {
     private double width;
     private double height;
 
+    TwoDShape() {                   // default constructor
+        width = height = 0.0;
+    }
+
+    TwoDShape(double w, double h) {
+        width = w;
+        height = h;
+    }
+
+    TwoDShape(double x) {           // constructor for figure with even sides
+        width = height = x;
+    }
+
     double getWidth() {
         return width;
     }
@@ -28,10 +41,19 @@ class TwoDShape {
 class Triangle extends TwoDShape {
     private String style;
 
+    Triangle() {                                //default constructor
+        super();
+        style = "none";
+    }
+
     Triangle (String s, double w, double h) {
+        super(w, h);
         style = s;
-        setWidth(w);
-        setHeight(h);
+    }
+
+    Triangle (double x) {
+        super(x);
+        style = "Painted over";
     }
 
     double area() {
@@ -45,8 +67,9 @@ class Triangle extends TwoDShape {
 
 class InheritanceDemo {
     public static void main(String args[]) {
-        Triangle t1 = new Triangle("Painted over", 4.0, 4.0);
-        Triangle t2 = new Triangle("Conrour", 8.0, 12.0);
+        Triangle t1 = new Triangle();
+        Triangle t2 = new Triangle("Contour", 8.0, 12.0);
+        Triangle t3 = new Triangle(4.5);
 
         System.out.println("Information about t1: ");
         t1.showDim();
@@ -59,5 +82,12 @@ class InheritanceDemo {
         t2.showDim();
         t2.showStyle();
         System.out.println("Area is: " + t2.area());
+
+        System.out.println();
+
+        System.out.println("Information about t3: ");
+        t3.showDim();
+        t3.showStyle();
+        System.out.println("Area is: " + t3.area());
     }
 }
