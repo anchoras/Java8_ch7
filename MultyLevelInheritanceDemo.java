@@ -6,7 +6,7 @@
     demo program demonstrates basic inheritance in Java
 */
 
-class TwoDShape {
+abstract class TwoDShape {
     private double width;
     private double height;
 
@@ -40,6 +40,8 @@ class TwoDShape {
     void showDim() {
         System.out.println("Width: " + width + "   Heigth: " + height);
     }
+
+    abstract double area();
 }
 
 
